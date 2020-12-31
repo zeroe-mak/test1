@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Личный сайт студента GeekBrains</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+
+function readInt(){
+   return +document.getElementById("userAnswer").value;
+}
+
+function write(text){
+    document.getElementById("info").innerHTML = '<br><b>Ваш пароль: </b>' + text;
+}
+
+function getRandomCode(max){
+    return Math.round(Math.random() * max);
+}
+
+function generateCode(length){
+    var letters = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPQqRrSsTtUuVvWwXxYyZz1234567890!@#$%^&*()-_=+/\\.,~`\'";
+    var code = "";
+    for(var i = 0; i < length; i++){
+    var n = getRandomCode(letters.length - 1);
+        code = code + letters[n];
+    }
+        return code;
+}
+
+function generate(length){
+    var password = generateCode(length);
+    write(password);
+}
+
+</script>
+</head>
+<body>
+
+<div class="content">
+<div class="header">
+<a href="index.php">Главная</a>
+<a href="puzzle.php">Загадки</a>
+<a href="guess.php">Угадайка</a>
+<a href="guess_multi.php">Угадайка для двоих</a>
+<a href="#">Генератор паролей</a>
+</div>
+
+<div class="contentWrap">
+<div class="content">
+<div class="center">
+
+        <h1>Генератор пароля</h1>
+
+        <div class="box">
+
+            <p id="info"><b><i>Укажите желаемую длинну пароля.</i></b></p>
+            <input type="text" id="userAnswer">
+
+            <br>
+            <a href="#"  onclick="generate(+document.getElementById('userAnswer').value);">Сгенерировать</a>
+
+        </div>
+    </div>
+</div>  
+</div>
+</div>
+
+<div class="footer">
+Copyright © не мой даже
+</div>
+</body>
+</html>
